@@ -1,0 +1,1748 @@
+{
+ "formatVersion": 1,
+ "database": {
+  "version": 2,
+  "identityHash": "ae98c192d5060191c7565a78d7f0ca31",
+  "entities": [
+   {
+    "tableName": "Subject",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `accent` INTEGER NOT NULL, `position` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "title",
+      "columnName": "title",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "accent",
+      "columnName": "accent",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "position",
+      "columnName": "position",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "createdAt",
+      "columnName": "createdAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "updatedAt",
+      "columnName": "updatedAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_Subject_position",
+      "unique": false,
+      "columnNames": [
+       "position"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Subject_position` ON `${TABLE_NAME}` (`position`)"
+     },
+     {
+      "name": "index_Subject_updatedAt",
+      "unique": false,
+      "columnNames": [
+       "updatedAt"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Subject_updatedAt` ON `${TABLE_NAME}` (`updatedAt`)"
+     }
+    ],
+    "foreignKeys": []
+   },
+   {
+    "tableName": "Folder",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `subjectId` TEXT NOT NULL, `parentId` TEXT, `title` TEXT NOT NULL, `position` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`subjectId`) REFERENCES `Subject`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`subjectId`, `parentId`) REFERENCES `Folder`(`subjectId`, `id`) ON UPDATE NO ACTION ON DELETE CASCADE DEFERRABLE INITIALLY DEFERRED)",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "subjectId",
+      "columnName": "subjectId",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "parentId",
+      "columnName": "parentId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "title",
+      "columnName": "title",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "position",
+      "columnName": "position",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "createdAt",
+      "columnName": "createdAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "updatedAt",
+      "columnName": "updatedAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_Folder_subjectId_id",
+      "unique": true,
+      "columnNames": [
+       "subjectId",
+       "id"
+      ],
+      "orders": [],
+      "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_Folder_subjectId_id` ON `${TABLE_NAME}` (`subjectId`, `id`)"
+     },
+     {
+      "name": "index_Folder_subjectId_parentId",
+      "unique": false,
+      "columnNames": [
+       "subjectId",
+       "parentId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Folder_subjectId_parentId` ON `${TABLE_NAME}` (`subjectId`, `parentId`)"
+     },
+     {
+      "name": "index_Folder_parentId",
+      "unique": false,
+      "columnNames": [
+       "parentId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Folder_parentId` ON `${TABLE_NAME}` (`parentId`)"
+     },
+     {
+      "name": "index_Folder_position",
+      "unique": false,
+      "columnNames": [
+       "position"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Folder_position` ON `${TABLE_NAME}` (`position`)"
+     }
+    ],
+    "foreignKeys": [
+     {
+      "table": "Subject",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "subjectId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     },
+     {
+      "table": "Folder",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "subjectId",
+       "parentId"
+      ],
+      "referencedColumns": [
+       "subjectId",
+       "id"
+      ]
+     }
+    ]
+   },
+   {
+    "tableName": "Lesson",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `subjectId` TEXT NOT NULL, `folderId` TEXT, `title` TEXT NOT NULL, `position` INTEGER NOT NULL, `status` TEXT NOT NULL, `understanding` INTEGER NOT NULL, `application` INTEGER NOT NULL, `revision` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`subjectId`) REFERENCES `Subject`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`subjectId`, `folderId`) REFERENCES `Folder`(`subjectId`, `id`) ON UPDATE NO ACTION ON DELETE CASCADE DEFERRABLE INITIALLY DEFERRED)",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "subjectId",
+      "columnName": "subjectId",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "folderId",
+      "columnName": "folderId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "title",
+      "columnName": "title",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "position",
+      "columnName": "position",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "status",
+      "columnName": "status",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "understanding",
+      "columnName": "understanding",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "application",
+      "columnName": "application",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "revision",
+      "columnName": "revision",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "createdAt",
+      "columnName": "createdAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "updatedAt",
+      "columnName": "updatedAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_Lesson_subjectId_folderId",
+      "unique": false,
+      "columnNames": [
+       "subjectId",
+       "folderId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Lesson_subjectId_folderId` ON `${TABLE_NAME}` (`subjectId`, `folderId`)"
+     },
+     {
+      "name": "index_Lesson_folderId",
+      "unique": false,
+      "columnNames": [
+       "folderId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Lesson_folderId` ON `${TABLE_NAME}` (`folderId`)"
+     },
+     {
+      "name": "index_Lesson_updatedAt",
+      "unique": false,
+      "columnNames": [
+       "updatedAt"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Lesson_updatedAt` ON `${TABLE_NAME}` (`updatedAt`)"
+     },
+     {
+      "name": "index_Lesson_position",
+      "unique": false,
+      "columnNames": [
+       "position"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Lesson_position` ON `${TABLE_NAME}` (`position`)"
+     }
+    ],
+    "foreignKeys": [
+     {
+      "table": "Subject",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "subjectId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     },
+     {
+      "table": "Folder",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "subjectId",
+       "folderId"
+      ],
+      "referencedColumns": [
+       "subjectId",
+       "id"
+      ]
+     }
+    ]
+   },
+   {
+    "tableName": "StudyFile",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `lessonId` TEXT NOT NULL, `title` TEXT NOT NULL, `location` TEXT NOT NULL, `mime` TEXT NOT NULL, `size` INTEGER NOT NULL, `storageType` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "lessonId",
+      "columnName": "lessonId",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "title",
+      "columnName": "title",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "location",
+      "columnName": "location",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "mime",
+      "columnName": "mime",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "size",
+      "columnName": "size",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "storageType",
+      "columnName": "storageType",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "createdAt",
+      "columnName": "createdAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "updatedAt",
+      "columnName": "updatedAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_StudyFile_lessonId",
+      "unique": false,
+      "columnNames": [
+       "lessonId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_StudyFile_lessonId` ON `${TABLE_NAME}` (`lessonId`)"
+     },
+     {
+      "name": "index_StudyFile_updatedAt",
+      "unique": false,
+      "columnNames": [
+       "updatedAt"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_StudyFile_updatedAt` ON `${TABLE_NAME}` (`updatedAt`)"
+     }
+    ],
+    "foreignKeys": [
+     {
+      "table": "Lesson",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "lessonId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     }
+    ]
+   },
+   {
+    "tableName": "StudyLink",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `lessonId` TEXT NOT NULL, `title` TEXT NOT NULL, `url` TEXT NOT NULL, `type` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "lessonId",
+      "columnName": "lessonId",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "title",
+      "columnName": "title",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "url",
+      "columnName": "url",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "type",
+      "columnName": "type",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "createdAt",
+      "columnName": "createdAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "updatedAt",
+      "columnName": "updatedAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_StudyLink_lessonId",
+      "unique": false,
+      "columnNames": [
+       "lessonId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_StudyLink_lessonId` ON `${TABLE_NAME}` (`lessonId`)"
+     }
+    ],
+    "foreignKeys": [
+     {
+      "table": "Lesson",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "lessonId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     }
+    ]
+   },
+   {
+    "tableName": "Note",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `subjectId` TEXT, `folderId` TEXT, `lessonId` TEXT, `fileId` TEXT, `title` TEXT NOT NULL, `body` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`subjectId`) REFERENCES `Subject`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`folderId`) REFERENCES `Folder`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`fileId`) REFERENCES `StudyFile`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "subjectId",
+      "columnName": "subjectId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "folderId",
+      "columnName": "folderId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "lessonId",
+      "columnName": "lessonId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "fileId",
+      "columnName": "fileId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "title",
+      "columnName": "title",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "body",
+      "columnName": "body",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "createdAt",
+      "columnName": "createdAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "updatedAt",
+      "columnName": "updatedAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_Note_subjectId",
+      "unique": false,
+      "columnNames": [
+       "subjectId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Note_subjectId` ON `${TABLE_NAME}` (`subjectId`)"
+     },
+     {
+      "name": "index_Note_folderId",
+      "unique": false,
+      "columnNames": [
+       "folderId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Note_folderId` ON `${TABLE_NAME}` (`folderId`)"
+     },
+     {
+      "name": "index_Note_lessonId",
+      "unique": false,
+      "columnNames": [
+       "lessonId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Note_lessonId` ON `${TABLE_NAME}` (`lessonId`)"
+     },
+     {
+      "name": "index_Note_fileId",
+      "unique": false,
+      "columnNames": [
+       "fileId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Note_fileId` ON `${TABLE_NAME}` (`fileId`)"
+     },
+     {
+      "name": "index_Note_updatedAt",
+      "unique": false,
+      "columnNames": [
+       "updatedAt"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Note_updatedAt` ON `${TABLE_NAME}` (`updatedAt`)"
+     }
+    ],
+    "foreignKeys": [
+     {
+      "table": "Subject",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "subjectId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     },
+     {
+      "table": "Folder",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "folderId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     },
+     {
+      "table": "Lesson",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "lessonId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     },
+     {
+      "table": "StudyFile",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "fileId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     }
+    ]
+   },
+   {
+    "tableName": "Tag",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `normalized` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "title",
+      "columnName": "title",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "normalized",
+      "columnName": "normalized",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "createdAt",
+      "columnName": "createdAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "updatedAt",
+      "columnName": "updatedAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_Tag_normalized",
+      "unique": true,
+      "columnNames": [
+       "normalized"
+      ],
+      "orders": [],
+      "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_Tag_normalized` ON `${TABLE_NAME}` (`normalized`)"
+     }
+    ],
+    "foreignKeys": []
+   },
+   {
+    "tableName": "LessonTag",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `lessonId` TEXT NOT NULL, `tagId` TEXT NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`tagId`) REFERENCES `Tag`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "lessonId",
+      "columnName": "lessonId",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "tagId",
+      "columnName": "tagId",
+      "affinity": "TEXT",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_LessonTag_lessonId_tagId",
+      "unique": true,
+      "columnNames": [
+       "lessonId",
+       "tagId"
+      ],
+      "orders": [],
+      "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_LessonTag_lessonId_tagId` ON `${TABLE_NAME}` (`lessonId`, `tagId`)"
+     },
+     {
+      "name": "index_LessonTag_tagId",
+      "unique": false,
+      "columnNames": [
+       "tagId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_LessonTag_tagId` ON `${TABLE_NAME}` (`tagId`)"
+     }
+    ],
+    "foreignKeys": [
+     {
+      "table": "Lesson",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "lessonId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     },
+     {
+      "table": "Tag",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "tagId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     }
+    ]
+   },
+   {
+    "tableName": "FileTag",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `fileId` TEXT NOT NULL, `tagId` TEXT NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`fileId`) REFERENCES `StudyFile`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`tagId`) REFERENCES `Tag`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "fileId",
+      "columnName": "fileId",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "tagId",
+      "columnName": "tagId",
+      "affinity": "TEXT",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_FileTag_fileId_tagId",
+      "unique": true,
+      "columnNames": [
+       "fileId",
+       "tagId"
+      ],
+      "orders": [],
+      "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_FileTag_fileId_tagId` ON `${TABLE_NAME}` (`fileId`, `tagId`)"
+     },
+     {
+      "name": "index_FileTag_tagId",
+      "unique": false,
+      "columnNames": [
+       "tagId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_FileTag_tagId` ON `${TABLE_NAME}` (`tagId`)"
+     }
+    ],
+    "foreignKeys": [
+     {
+      "table": "StudyFile",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "fileId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     },
+     {
+      "table": "Tag",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "tagId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     }
+    ]
+   },
+   {
+    "tableName": "NoteTag",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `noteId` TEXT NOT NULL, `tagId` TEXT NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`noteId`) REFERENCES `Note`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`tagId`) REFERENCES `Tag`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "noteId",
+      "columnName": "noteId",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "tagId",
+      "columnName": "tagId",
+      "affinity": "TEXT",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_NoteTag_noteId_tagId",
+      "unique": true,
+      "columnNames": [
+       "noteId",
+       "tagId"
+      ],
+      "orders": [],
+      "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_NoteTag_noteId_tagId` ON `${TABLE_NAME}` (`noteId`, `tagId`)"
+     },
+     {
+      "name": "index_NoteTag_tagId",
+      "unique": false,
+      "columnNames": [
+       "tagId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_NoteTag_tagId` ON `${TABLE_NAME}` (`tagId`)"
+     }
+    ],
+    "foreignKeys": [
+     {
+      "table": "Note",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "noteId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     },
+     {
+      "table": "Tag",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "tagId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     }
+    ]
+   },
+   {
+    "tableName": "AppSetting",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`key` TEXT NOT NULL, `value` TEXT NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`key`))",
+    "fields": [
+     {
+      "fieldPath": "key",
+      "columnName": "key",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "value",
+      "columnName": "value",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "updatedAt",
+      "columnName": "updatedAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "key"
+     ]
+    },
+    "indices": [],
+    "foreignKeys": []
+   },
+   {
+    "tableName": "PendingDeletion",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `path` TEXT NOT NULL, PRIMARY KEY(`id`))",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "path",
+      "columnName": "path",
+      "affinity": "TEXT",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [],
+    "foreignKeys": []
+   },
+   {
+    "tableName": "Review",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `lessonId` TEXT NOT NULL, `subjectId` TEXT NOT NULL, `scheduledAt` INTEGER NOT NULL, `scheduledDay` INTEGER NOT NULL, `completedAt` INTEGER, `status` TEXT NOT NULL, `note` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "lessonId",
+      "columnName": "lessonId",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "subjectId",
+      "columnName": "subjectId",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "scheduledAt",
+      "columnName": "scheduledAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "scheduledDay",
+      "columnName": "scheduledDay",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "completedAt",
+      "columnName": "completedAt",
+      "affinity": "INTEGER",
+      "notNull": false
+     },
+     {
+      "fieldPath": "status",
+      "columnName": "status",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "note",
+      "columnName": "note",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "createdAt",
+      "columnName": "createdAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "updatedAt",
+      "columnName": "updatedAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_Review_lessonId",
+      "unique": false,
+      "columnNames": [
+       "lessonId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Review_lessonId` ON `${TABLE_NAME}` (`lessonId`)"
+     },
+     {
+      "name": "index_Review_subjectId",
+      "unique": false,
+      "columnNames": [
+       "subjectId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Review_subjectId` ON `${TABLE_NAME}` (`subjectId`)"
+     },
+     {
+      "name": "index_Review_scheduledDay",
+      "unique": false,
+      "columnNames": [
+       "scheduledDay"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Review_scheduledDay` ON `${TABLE_NAME}` (`scheduledDay`)"
+     },
+     {
+      "name": "index_Review_status_scheduledDay",
+      "unique": false,
+      "columnNames": [
+       "status",
+       "scheduledDay"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Review_status_scheduledDay` ON `${TABLE_NAME}` (`status`, `scheduledDay`)"
+     }
+    ],
+    "foreignKeys": [
+     {
+      "table": "Lesson",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "lessonId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     }
+    ]
+   },
+   {
+    "tableName": "StudySession",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `subjectId` TEXT, `folderId` TEXT, `lessonId` TEXT, `startTime` INTEGER NOT NULL, `endTime` INTEGER NOT NULL, `duration` INTEGER NOT NULL, `goal` TEXT NOT NULL, `result` TEXT, `notes` TEXT NOT NULL, `lastPage` INTEGER, `dayIndex` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`subjectId`) REFERENCES `Subject`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL , FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL )",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "subjectId",
+      "columnName": "subjectId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "folderId",
+      "columnName": "folderId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "lessonId",
+      "columnName": "lessonId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "startTime",
+      "columnName": "startTime",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "endTime",
+      "columnName": "endTime",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "duration",
+      "columnName": "duration",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "goal",
+      "columnName": "goal",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "result",
+      "columnName": "result",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "notes",
+      "columnName": "notes",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "lastPage",
+      "columnName": "lastPage",
+      "affinity": "INTEGER",
+      "notNull": false
+     },
+     {
+      "fieldPath": "dayIndex",
+      "columnName": "dayIndex",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "createdAt",
+      "columnName": "createdAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_StudySession_subjectId",
+      "unique": false,
+      "columnNames": [
+       "subjectId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_StudySession_subjectId` ON `${TABLE_NAME}` (`subjectId`)"
+     },
+     {
+      "name": "index_StudySession_lessonId",
+      "unique": false,
+      "columnNames": [
+       "lessonId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_StudySession_lessonId` ON `${TABLE_NAME}` (`lessonId`)"
+     },
+     {
+      "name": "index_StudySession_startTime",
+      "unique": false,
+      "columnNames": [
+       "startTime"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_StudySession_startTime` ON `${TABLE_NAME}` (`startTime`)"
+     },
+     {
+      "name": "index_StudySession_dayIndex",
+      "unique": false,
+      "columnNames": [
+       "dayIndex"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_StudySession_dayIndex` ON `${TABLE_NAME}` (`dayIndex`)"
+     }
+    ],
+    "foreignKeys": [
+     {
+      "table": "Subject",
+      "onDelete": "SET NULL",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "subjectId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     },
+     {
+      "table": "Lesson",
+      "onDelete": "SET NULL",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "lessonId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     }
+    ]
+   },
+   {
+    "tableName": "Plan",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `subjectId` TEXT, `startDay` INTEGER NOT NULL, `endDay` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`subjectId`) REFERENCES `Subject`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL )",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "title",
+      "columnName": "title",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "description",
+      "columnName": "description",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "subjectId",
+      "columnName": "subjectId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "startDay",
+      "columnName": "startDay",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "endDay",
+      "columnName": "endDay",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "createdAt",
+      "columnName": "createdAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "updatedAt",
+      "columnName": "updatedAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_Plan_subjectId",
+      "unique": false,
+      "columnNames": [
+       "subjectId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Plan_subjectId` ON `${TABLE_NAME}` (`subjectId`)"
+     },
+     {
+      "name": "index_Plan_startDay",
+      "unique": false,
+      "columnNames": [
+       "startDay"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Plan_startDay` ON `${TABLE_NAME}` (`startDay`)"
+     },
+     {
+      "name": "index_Plan_endDay",
+      "unique": false,
+      "columnNames": [
+       "endDay"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Plan_endDay` ON `${TABLE_NAME}` (`endDay`)"
+     }
+    ],
+    "foreignKeys": [
+     {
+      "table": "Subject",
+      "onDelete": "SET NULL",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "subjectId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     }
+    ]
+   },
+   {
+    "tableName": "Task",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `planId` TEXT, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `day` INTEGER, `dueDay` INTEGER, `subjectId` TEXT, `lessonId` TEXT, `status` TEXT NOT NULL, `priority` TEXT NOT NULL, `position` INTEGER NOT NULL, `completedAt` INTEGER, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`planId`) REFERENCES `Plan`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`subjectId`) REFERENCES `Subject`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL , FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL )",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "planId",
+      "columnName": "planId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "title",
+      "columnName": "title",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "description",
+      "columnName": "description",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "day",
+      "columnName": "day",
+      "affinity": "INTEGER",
+      "notNull": false
+     },
+     {
+      "fieldPath": "dueDay",
+      "columnName": "dueDay",
+      "affinity": "INTEGER",
+      "notNull": false
+     },
+     {
+      "fieldPath": "subjectId",
+      "columnName": "subjectId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "lessonId",
+      "columnName": "lessonId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "status",
+      "columnName": "status",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "priority",
+      "columnName": "priority",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "position",
+      "columnName": "position",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "completedAt",
+      "columnName": "completedAt",
+      "affinity": "INTEGER",
+      "notNull": false
+     },
+     {
+      "fieldPath": "createdAt",
+      "columnName": "createdAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "updatedAt",
+      "columnName": "updatedAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_Task_planId",
+      "unique": false,
+      "columnNames": [
+       "planId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Task_planId` ON `${TABLE_NAME}` (`planId`)"
+     },
+     {
+      "name": "index_Task_subjectId",
+      "unique": false,
+      "columnNames": [
+       "subjectId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Task_subjectId` ON `${TABLE_NAME}` (`subjectId`)"
+     },
+     {
+      "name": "index_Task_lessonId",
+      "unique": false,
+      "columnNames": [
+       "lessonId"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Task_lessonId` ON `${TABLE_NAME}` (`lessonId`)"
+     },
+     {
+      "name": "index_Task_status",
+      "unique": false,
+      "columnNames": [
+       "status"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Task_status` ON `${TABLE_NAME}` (`status`)"
+     },
+     {
+      "name": "index_Task_day",
+      "unique": false,
+      "columnNames": [
+       "day"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Task_day` ON `${TABLE_NAME}` (`day`)"
+     },
+     {
+      "name": "index_Task_dueDay",
+      "unique": false,
+      "columnNames": [
+       "dueDay"
+      ],
+      "orders": [],
+      "createSql": "CREATE INDEX IF NOT EXISTS `index_Task_dueDay` ON `${TABLE_NAME}` (`dueDay`)"
+     }
+    ],
+    "foreignKeys": [
+     {
+      "table": "Plan",
+      "onDelete": "CASCADE",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "planId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     },
+     {
+      "table": "Subject",
+      "onDelete": "SET NULL",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "subjectId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     },
+     {
+      "table": "Lesson",
+      "onDelete": "SET NULL",
+      "onUpdate": "NO ACTION",
+      "columns": [
+       "lessonId"
+      ],
+      "referencedColumns": [
+       "id"
+      ]
+     }
+    ]
+   },
+   {
+    "tableName": "FocusPreset",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `focusMinutes` INTEGER NOT NULL, `shortBreakMinutes` INTEGER NOT NULL, `longBreakMinutes` INTEGER NOT NULL, `sessionsCount` INTEGER NOT NULL, `longBreakInterval` INTEGER NOT NULL, `autoStart` INTEGER NOT NULL, `sound` INTEGER NOT NULL, `vibration` INTEGER NOT NULL, `builtIn` INTEGER NOT NULL, `position` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "title",
+      "columnName": "title",
+      "affinity": "TEXT",
+      "notNull": true
+     },
+     {
+      "fieldPath": "focusMinutes",
+      "columnName": "focusMinutes",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "shortBreakMinutes",
+      "columnName": "shortBreakMinutes",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "longBreakMinutes",
+      "columnName": "longBreakMinutes",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "sessionsCount",
+      "columnName": "sessionsCount",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "longBreakInterval",
+      "columnName": "longBreakInterval",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "autoStart",
+      "columnName": "autoStart",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "sound",
+      "columnName": "sound",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "vibration",
+      "columnName": "vibration",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "builtIn",
+      "columnName": "builtIn",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "position",
+      "columnName": "position",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "createdAt",
+      "columnName": "createdAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "updatedAt",
+      "columnName": "updatedAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [
+     {
+      "name": "index_FocusPreset_position",
+      "unique": true,
+      "columnNames": [
+       "position"
+      ],
+      "orders": [],
+      "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_FocusPreset_position` ON `${TABLE_NAME}` (`position`)"
+     }
+    ],
+    "foreignKeys": []
+   },
+   {
+    "tableName": "LastActive",
+    "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `subjectId` TEXT, `folderId` TEXT, `lessonId` TEXT, `fileId` TEXT, `page` INTEGER, `updatedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+    "fields": [
+     {
+      "fieldPath": "id",
+      "columnName": "id",
+      "affinity": "INTEGER",
+      "notNull": true
+     },
+     {
+      "fieldPath": "subjectId",
+      "columnName": "subjectId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "folderId",
+      "columnName": "folderId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "lessonId",
+      "columnName": "lessonId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "fileId",
+      "columnName": "fileId",
+      "affinity": "TEXT",
+      "notNull": false
+     },
+     {
+      "fieldPath": "page",
+      "columnName": "page",
+      "affinity": "INTEGER",
+      "notNull": false
+     },
+     {
+      "fieldPath": "updatedAt",
+      "columnName": "updatedAt",
+      "affinity": "INTEGER",
+      "notNull": true
+     }
+    ],
+    "primaryKey": {
+     "autoGenerate": false,
+     "columnNames": [
+      "id"
+     ]
+    },
+    "indices": [],
+    "foreignKeys": []
+   }
+  ],
+  "views": [],
+  "setupQueries": [
+   "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+   "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ae98c192d5060191c7565a78d7f0ca31')"
+  ]
+ }
+}
