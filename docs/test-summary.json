@@ -1,0 +1,368 @@
+{
+  "version": "1.0.0-v1-candidate",
+  "build": "PASS",
+  "tests": 44,
+  "failures": 0,
+  "skipped": 0,
+  "lint_errors": 0,
+  "lint_warnings": 28,
+  "suites": [
+    {
+      "suite": "com.nageebstudyos.study.LocalizationTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "englishResourcesSetLtrAndTranslateCoreStrings",
+          "passed": true
+        },
+        {
+          "name": "applicationHasNoNetworkOrBroadStoragePermission",
+          "passed": true
+        },
+        {
+          "name": "arabicResourcesSetRtlAndTranslateCoreStrings",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "com.nageebstudyos.study.NativeUiTest",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "populatedLibraryRendersBothThemes",
+          "passed": true
+        },
+        {
+          "name": "lightDarkAndArabicSettingsAreLive",
+          "passed": true
+        },
+        {
+          "name": "nativeUiCreatesHierarchyNoteTagAndSearchesLesson",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "com.nageebstudyos.study.RepositoryTest",
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "cascadeQueuesOnlyPrivateCopiesAndSurvivesRestart",
+          "passed": true
+        },
+        {
+          "name": "fileAndNoteTagAssignmentsPersist",
+          "passed": true
+        },
+        {
+          "name": "renameDoesNotCascadeOrChangeId",
+          "passed": true
+        },
+        {
+          "name": "failedImportDoesNotCreateRecord",
+          "passed": true
+        },
+        {
+          "name": "tagAttachmentsAreIdempotentAndCascadeSafely",
+          "passed": true
+        },
+        {
+          "name": "wildcardSearchIsLiteralAndArabicSearchWorks",
+          "passed": true
+        },
+        {
+          "name": "databaseRejectsCrossSubjectFolderRelationship",
+          "passed": true
+        },
+        {
+          "name": "duplicateTagsRejectedCaseInsensitively",
+          "passed": true
+        },
+        {
+          "name": "deletesHierarchyDeeperThanSqliteCascadeLimit",
+          "passed": true
+        },
+        {
+          "name": "cleanupCannotDeleteOutsidePrivateImportsDirectory",
+          "passed": true
+        },
+        {
+          "name": "searchFlowRefreshesAfterWritesWithoutChangingQuery",
+          "passed": true
+        },
+        {
+          "name": "noteCanAttachToEachSupportedOwner",
+          "passed": true
+        },
+        {
+          "name": "reorderSwapsOnlySiblings",
+          "passed": true
+        },
+        {
+          "name": "folderMoveRejectsCyclesAndPreservesContents",
+          "passed": true
+        },
+        {
+          "name": "deletingLinkedRecordNeverDeletesOriginalOrQueuesIt",
+          "passed": true
+        },
+        {
+          "name": "thousandsOfMetadataRowsRemainSearchableAndBounded",
+          "passed": true
+        },
+        {
+          "name": "allSevenEntityTypesAreSearchable",
+          "passed": true
+        },
+        {
+          "name": "databaseRejectsInvalidProgressAndOwner",
+          "passed": true
+        },
+        {
+          "name": "acceptanceDataFlowPersistsAfterDatabaseReopen",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "suite": "com.nageebstudyos.study.StudyRulesTest",
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "deepTreeDoesNotRecurse",
+          "passed": true
+        },
+        {
+          "name": "idsDoNotDependOnNames",
+          "passed": true
+        },
+        {
+          "name": "trimsTitle",
+          "passed": true
+        },
+        {
+          "name": "corruptedCycleTerminates",
+          "passed": true
+        },
+        {
+          "name": "rejectsMalformedUrl",
+          "passed": true
+        },
+        {
+          "name": "rejectsExcessProgress",
+          "passed": true
+        },
+        {
+          "name": "rejectsJavascriptUrl",
+          "passed": true
+        },
+        {
+          "name": "rejectsEmptyTitle",
+          "passed": true
+        },
+        {
+          "name": "progressBoundaries",
+          "passed": true
+        },
+        {
+          "name": "rejectsDescendantMove",
+          "passed": true
+        },
+        {
+          "name": "acceptsRootMove",
+          "passed": true
+        },
+        {
+          "name": "acceptsHttpsUrl",
+          "passed": true
+        },
+        {
+          "name": "rejectsSelfMove",
+          "passed": true
+        },
+        {
+          "name": "acceptsValidSiblingMove",
+          "passed": true
+        },
+        {
+          "name": "searchEscapesWildcards",
+          "passed": true
+        },
+        {
+          "name": "rejectsEmbeddedCredentials",
+          "passed": true
+        },
+        {
+          "name": "rejectsCrossSubjectMove",
+          "passed": true
+        },
+        {
+          "name": "rejectsNegativeProgress",
+          "passed": true
+        },
+        {
+          "name": "rejectsMissingDestination",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "lint_issues": [
+    {
+      "id": "OldTargetApi",
+      "severity": "Warning",
+      "message": "Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the `android.os.Build.VERSION_CODES` javadoc for details."
+    },
+    {
+      "id": "UnusedAttribute",
+      "severity": "Warning",
+      "message": "Attribute `localeConfig` is only used in API level 33 and higher (current min is 26)"
+    },
+    {
+      "id": "GradleDependency",
+      "severity": "Warning",
+      "message": "A newer version of androidx.compose:compose-bom than 2024.12.01 is available: 2026.09.00"
+    },
+    {
+      "id": "GradleDependency",
+      "severity": "Warning",
+      "message": "A newer version of androidx.activity:activity-compose than 1.9.3 is available: 1.13.0"
+    },
+    {
+      "id": "GradleDependency",
+      "severity": "Warning",
+      "message": "A newer version of androidx.lifecycle:lifecycle-runtime-compose than 2.8.7 is available: 2.11.0"
+    },
+    {
+      "id": "GradleDependency",
+      "severity": "Warning",
+      "message": "A newer version of androidx.lifecycle:lifecycle-viewmodel-compose than 2.8.7 is available: 2.11.0"
+    },
+    {
+      "id": "GradleDependency",
+      "severity": "Warning",
+      "message": "A newer version of androidx.navigation:navigation-compose than 2.8.5 is available: 2.10.1"
+    },
+    {
+      "id": "GradleDependency",
+      "severity": "Warning",
+      "message": "A newer version of androidx.room:room-runtime than 2.6.1 is available: 2.8.5"
+    },
+    {
+      "id": "GradleDependency",
+      "severity": "Warning",
+      "message": "A newer version of androidx.room:room-ktx than 2.6.1 is available: 2.8.5"
+    },
+    {
+      "id": "GradleDependency",
+      "severity": "Warning",
+      "message": "A newer version of androidx.room:room-compiler than 2.6.1 is available: 2.8.5"
+    },
+    {
+      "id": "GradleDependency",
+      "severity": "Warning",
+      "message": "A newer version of androidx.core:core-ktx than 1.15.0 is available: 1.19.0"
+    },
+    {
+      "id": "GradleDependency",
+      "severity": "Warning",
+      "message": "A newer version of androidx.test:core than 1.6.1 is available: 1.7.0"
+    },
+    {
+      "id": "PrivateResource",
+      "severity": "Warning",
+      "message": "Overriding `@string/in_progress` which is marked as private in androidx.compose.ui:ui-android:1.7.6. If deliberate, use tools:override=\"true\", otherwise pick a different name."
+    },
+    {
+      "id": "PrivateResource",
+      "severity": "Warning",
+      "message": "Overriding `@string/in_progress` which is marked as private in androidx.compose.ui:ui-android:1.7.6. If deliberate, use tools:override=\"true\", otherwise pick a different name."
+    },
+    {
+      "id": "PluralsCandidate",
+      "severity": "Warning",
+      "message": "Formatting %d followed by words (\"lessons\"): This should probably be a plural rather than a string"
+    },
+    {
+      "id": "DataExtractionRules",
+      "severity": "Warning",
+      "message": "The attribute `android:allowBackup` is deprecated from Android 12 and higher and may be removed in future versions. Consider adding the attribute `android:dataExtractionRules` specifying an `@xml` resource which configures cloud backups and device transfers on Android 12 and higher."
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.string.rename` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.string.files` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.string.folders` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.string.lessons` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.string.links` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.string.notes` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.string.created` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.string.file_details` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.string.relink` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.string.error_title` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.string.loading` appears to be unused"
+    },
+    {
+      "id": "UnusedResources",
+      "severity": "Warning",
+      "message": "The resource `R.string.moved` appears to be unused"
+    }
+  ],
+  "device_tests": "NOT RUN: no physical device or emulator connected",
+  "screenshots": "Actual Compose views captured using Robolectric native graphics, not device screenshots",
+  "release_gate": "V1 candidate; physical-device acceptance and production signing pending"
+}

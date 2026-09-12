@@ -1,0 +1,52 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: C=US, O=Android, CN=Android Debug
+Signer #1 certificate SHA-256 digest: 072f8f7274629f0ea22b2b4b19503024d70fab132939d38996604748a819b000
+Signer #1 certificate SHA-1 digest: 77cc42ba5696f9a99b26b65a1350bce6e196c5a6
+Signer #1 certificate MD5 digest: 5cd4d270ce8891d738aa0c5e3d4d13ec
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 2048
+Signer #1 public key SHA-256 digest: bdfdc52c942832a33bbd65572c42e81c83db5308da855578bc5ecbbe9e1844ea
+Signer #1 public key SHA-1 digest: 8565cd7ec92df71a8b1712e232414cd4ac087523
+Signer #1 public key MD5 digest: a1503ffba8e9ed6e7c16bbc100a2a236
+
+package: name='com.nageebstudyos.study' versionCode='1' versionName='1.0.0-v1-candidate' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'
+sdkVersion:'26'
+targetSdkVersion:'35'
+uses-permission: name='com.nageebstudyos.study.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
+application-label:'NAGEEB STUDY OS'
+application-label-af:'NAGEEB STUDY OS'
+application-label-am:'NAGEEB STUDY OS'
+application-label-ar:'NAGEEB STUDY OS'
+application-label-as:'NAGEEB STUDY OS'
+application-label-az:'NAGEEB STUDY OS'
+application-label-be:'NAGEEB STUDY OS'
+application-label-bg:'NAGEEB STUDY OS'
+application-label-bn:'NAGEEB STUDY OS'
+application-label-bs:'NAGEEB STUDY OS'
+application-label-ca:'NAGEEB STUDY OS'
+application-label-cs:'NAGEEB STUDY OS'
+application-label-da:'NAGEEB STUDY OS'
+application-label-de:'NAGEEB STUDY OS'
+application-label-el:'NAGEEB STUDY OS'
+application-label-en-AU:'NAGEEB STUDY OS'
+application-label-en-CA:'NAGEEB STUDY OS'
+application-label-en-GB:'NAGEEB STUDY OS'
+application-label-en-IN:'NAGEEB STUDY OS'
+application-label-en-XC:'NAGEEB STUDY OS'
+
+package: com.nageebstudyos.study
+permission: com.nageebstudyos.study.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+uses-permission: name='com.nageebstudyos.study.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
+
+b7845064a161bc760dcdb284230aed9859f2397cd971482d99f12a4f41a218da  app/build/outputs/apk/debug/app-debug.apk
+APK bytes: 17696318
+
+List of devices attached
+

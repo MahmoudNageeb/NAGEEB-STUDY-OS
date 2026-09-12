@@ -1,0 +1,395 @@
+<resources>
+    <!-- Navigation / brand -->
+    <string name="app_name">نجيب ستودي أو إس</string>
+    <string name="home">الرئيسية</string>
+    <string name="subjects">المواد</string>
+    <string name="planner">المخطط</string>
+    <string name="focus">التركيز</string>
+    <string name="analytics">التحليلات</string>
+    <string name="calendar">التقويم</string>
+    <string name="later">متاح في إصدار قادم</string>
+
+    <!-- Library -->
+    <string name="library">مكتبتك الدراسية</string>
+    <string name="library_caption">مساحة مرتبة لكل ما تتعلمه.</string>
+    <string name="greeting">مساحة للتفكير.\nومجال للنمو.</string>
+    <string name="home_caption">دراستك، بترتيب يليق بك.</string>
+    <string name="local_first">خصوصية أصيلة · يعمل دون إنترنت</string>
+
+    <!-- Search / settings / common -->
+    <string name="search">البحث</string>
+    <string name="search_hint">مواد، دروس، ملاحظات، ملفات…</string>
+    <string name="search_caption">ابحث في مكتبتك كاملة، دون اتصال بالإنترنت.</string>
+    <string name="search_limit">عرض حتى ٢٠٠ نتيجة. حدد كلمات أدق للوصول إلى نتائج أفضل.</string>
+    <string name="settings">الإعدادات</string>
+    <string name="back">رجوع</string>
+    <string name="more">المزيد من الخيارات</string>
+    <string name="add">إضافة</string>
+    <string name="quick_add">إضافة سريعة</string>
+    <string name="create">إنشاء</string>
+    <string name="save">حفظ</string>
+    <string name="cancel">إلغاء</string>
+    <string name="close">إغلاق</string>
+    <string name="edit">تعديل</string>
+    <string name="rename">إعادة تسمية</string>
+    <string name="delete">حذف</string>
+    <string name="move">نقل</string>
+    <string name="move_up">نقل لأعلى</string>
+    <string name="move_down">نقل لأسفل</string>
+    <string name="create_child">إنشاء مجلد فرعي</string>
+    <string name="open">فتح</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="done">تم</string>
+    <string name="not_now">ليس الآن</string>
+
+    <!-- Kinds -->
+    <string name="subject">مادة</string>
+    <string name="folder">مجلد</string>
+    <string name="lesson">درس</string>
+    <string name="file">ملف</string>
+    <string name="link">رابط</string>
+    <string name="note">ملاحظة</string>
+    <string name="tag">وسم</string>
+    <string name="tags">الوسوم</string>
+
+    <!-- Fields -->
+    <string name="title">العنوان</string>
+    <string name="body">ملاحظاتك</string>
+    <string name="url">الرابط (https://…)</string>
+    <string name="link_type">نوع الرابط</string>
+    <string name="accent">لون المادة</string>
+    <string name="accent_number">لون %1$d</string>
+
+    <!-- Empty states -->
+    <string name="empty_library">بداية جديدة</string>
+    <string name="empty_library_body">أنشئ مادتك الأولى، وابنِ مكتبة تنمو معك.</string>
+    <string name="empty_folder">مساحة لفكرة جديدة</string>
+    <string name="empty_folder_body">أضف مجلدًا أو درسًا أو ملاحظة لتنظيم هذه المساحة.</string>
+    <string name="empty_lesson">أثرِ هذا الدرس</string>
+    <string name="empty_lesson_body">اجمع ملفاته وروابطه وملاحظاته. كل شيء يبقى على جهازك.</string>
+    <string name="no_results">لا توجد نتائج</string>
+    <string name="no_results_body">جرّب عنوانًا أو كلمة أو وسمًا آخر.</string>
+    <string name="no_tags">أنشئ وسمًا لتنظيم دروسك وملفاتك وملاحظاتك.</string>
+
+    <!-- Home / library lists -->
+    <string name="recent_subjects">أحدث المواد</string>
+    <string name="recent_lessons">أحدث الدروس</string>
+    <string name="recent_files">أحدث الملفات</string>
+    <string name="continue_studying">تابع دراستك</string>
+    <string name="view_all">عرض الكل</string>
+    <string name="contents">المحتويات</string>
+    <string name="notes">الملاحظات</string>
+    <string name="files">الملفات</string>
+    <string name="links">الروابط</string>
+    <string name="folders">المجلدات</string>
+    <string name="lessons">الدروس</string>
+
+    <!-- Lesson progress -->
+    <string name="status">الحالة</string>
+    <string name="not_started">لم يبدأ</string>
+    <string name="in_progress">قيد الدراسة</string>
+    <string name="needs_review">يحتاج مراجعة</string>
+    <string name="mastered">متقن</string>
+    <string name="weak">ضعيف</string>
+    <string name="progress">تعلمك، في لمحة</string>
+    <string name="manual_progress">تقييم ذاتي · يُحدّث يدويًا</string>
+    <string name="understanding">الفهم</string>
+    <string name="application">التطبيق</string>
+    <string name="revision">المراجعة</string>
+    <string name="percent">%1$d%%</string>
+    <string name="edit_progress">تحديث تقدم التعلم</string>
+
+    <!-- Sorting / trees -->
+    <string name="sort">الترتيب</string>
+    <string name="manual">ترتيب يدوي</string>
+    <string name="alphabetical">أبجدي</string>
+    <string name="created_date">تاريخ الإنشاء</string>
+    <string name="updated_date">آخر تحديث</string>
+    <string name="lesson_count">%1$d درسًا</string>
+    <string name="updated">آخر تحديث %1$s</string>
+    <string name="created">أُنشئ %1$s</string>
+    <string name="root">جذر المادة</string>
+    <string name="move_destination">اختر وجهة النقل</string>
+    <string name="move_hint">النقل داخل المادة نفسها. لا يمكن للمجلد أن يحتوي نفسه.</string>
+    <string name="tree">شجرة المجلدات</string>
+    <string name="expand">توسيع</string>
+    <string name="collapse">طي</string>
+    <string name="parent">الأصل</string>
+    <string name="subject_label">المادة</string>
+
+    <!-- Delete / files -->
+    <string name="delete_title">حذف «%1$s»؟</string>
+    <string name="delete_message">سيُحذف السجل وكل محتوياته نهائيًا، بما فيها المجلدات الفرعية والملاحظات. تُحذف النسخ المستوردة من مساحة التطبيق فقط، ولا تُحذف الملفات الأصلية المرتبطة أبدًا. لا يمكن التراجع.</string>
+    <string name="delete_tag_message">حذف هذا الوسم وارتباطاته؟ ستبقى دروسك وملفاتك وملاحظاتك.</string>
+    <string name="attach_file">إضافة ملف</string>
+    <string name="link_existing">ربط ملف موجود</string>
+    <string name="link_existing_body">يبقى الأصل في مكانه. يعتمد الوصول على موفر الملف والإذن.</string>
+    <string name="import_file">استيراد نسخة خاصة</string>
+    <string name="import_file_body">انسخ إلى مساحة التطبيق للوصول دون إنترنت. يبقى الأصل دون تغيير.</string>
+    <string name="linked">ملف أصلي مرتبط</string>
+    <string name="imported">نسخة خاصة مستوردة</string>
+    <string name="file_details">تفاصيل الملف</string>
+    <string name="file_size">الحجم: %1$s</string>
+    <string name="unknown_size">غير معروف</string>
+    <string name="storage">التخزين</string>
+    <string name="file_safety">لا يحذف التطبيق الأصول المرتبطة أبدًا. لا تُحذف النسخ الخاصة إلا بعد التأكيد.</string>
+    <string name="relink">اختر الملف مجددًا</string>
+    <string name="relink_info">إذا فُقد الإذن، أضف الملف مجددًا باستخدام منتقي المستندات.</string>
+
+    <!-- Appearance / language (kept dark, Arabic only) -->
+    <string name="appearance">المظهر</string>
+    <string name="system_theme">النظام</string>
+    <string name="light">فاتح</string>
+    <string name="dark">داكن</string>
+    <string name="language">اللغة</string>
+    <string name="english">English</string>
+    <string name="arabic">العربية</string>
+    <string name="manage_tags">إدارة الوسوم</string>
+    <string name="privacy">دراستك ملكك وحدك</string>
+    <string name="privacy_body">لا حسابات، ولا مزامنة سحابية، ولا إعلانات، ولا تتبع. تُحفظ مكتبتك وجلساتك ومهامك على هذا الجهاز فقط.</string>
+    <string name="backup_warning">مهم: حذف التطبيق أو مسح بياناته يزيل المكتبة والملفات المستوردة. النسخ الاحتياطي والتصدير غير متاحين في هذا الإصدار.</string>
+    <string name="version_label">الإصدار 2.0.0 · نظام إدارة الدراسة</string>
+    <string name="design_signature">تشتيت أقل. وضوح أكثر.</string>
+    <string name="attach_tags">تعيين الوسوم</string>
+
+    <!-- Snackbars / states -->
+    <string name="saved">حُفظ على هذا الجهاز</string>
+    <string name="deleted">تم الحذف. لم تتغير الأصول المرتبطة.</string>
+    <string name="moved">تم النقل</string>
+    <string name="loading">جارٍ تحميل مكتبتك</string>
+    <string name="working">جارٍ الحفظ…</string>
+
+    <!-- Errors -->
+    <string name="error_title">أمر يحتاج انتباهك</string>
+    <string name="error_title_required">أدخل عنوانًا للمتابعة.</string>
+    <string name="error_invalid_url">استخدم عنوان http:// أو https:// صالحًا يحتوي اسم مضيف.</string>
+    <string name="error_invalid_move">هذه الوجهة غير مسموحة. اختر مجلدًا آخر داخل المادة.</string>
+    <string name="error_progress">يجب أن يكون التقدم بين ٠ و١٠٠.</string>
+    <string name="error_owner">اختر أصلًا صالحًا لهذا المحتوى.</string>
+    <string name="error_missing">لم يعد هذا العنصر موجودًا. عُد إلى مكتبتك.</string>
+    <string name="error_file">تعذر فتح الملف أو الرابط. تحقق من وجوده، وتوفر الإذن، وتثبيت تطبيق عرض متوافق.</string>
+    <string name="error_import">تعذر استيراد الملف. تحقق من المساحة المتاحة وإمكانية الوصول ثم أعد المحاولة.</string>
+    <string name="error_database">تعذر إكمال العملية. ربما لم تُحفظ التغييرات. أعد المحاولة.</string>
+    <string name="error_duplicate_tag">يوجد وسم بهذا الاسم بالفعل.</string>
+    <string name="error_invalid_duration">مدة الجلسة غير صحيحة.</string>
+    <string name="error_invalid_date">النطاق الزمني غير صالح. تأكد من ترتيب التواريخ.</string>
+    <string name="error_invalid_preset">قيم نمط التركيز غير صحيحة.</string>
+    <string name="unsaved_title">تجاهل التغييرات غير المحفوظة؟</string>
+    <string name="unsaved_body">لم تُحفظ تعديلاتك بعد.</string>
+    <string name="discard">تجاهل</string>
+    <string name="keep_editing">متابعة التحرير</string>
+
+    <!-- ============================= V2 ============================= -->
+
+    <!-- Time formatting -->
+    <string name="hours_minutes">%1$d س %2$d د</string>
+    <string name="minutes_only">%1$d د</string>
+    <string name="seconds_only">%1$d ث</string>
+    <string name="streak_days">%1$d يومًا</string>
+    <string name="page_value">صفحة %1$d</string>
+    <string name="count_reviews">%1$d مراجعة</string>
+    <string name="count_tasks">%1$d مهمة</string>
+    <string name="count_sessions">%1$d جلسة</string>
+    <string name="tasks_progress">أُنجز %1$d من %2$d</string>
+
+    <!-- Greetings -->
+    <string name="greeting_morning">صباح التركيز</string>
+    <string name="greeting_afternoon">نهارك إتقان</string>
+    <string name="greeting_evening">مساء الإنجاز</string>
+    <string name="dashboard_subtitle">نظرة واحدة تكفي لمعرفة أين أنت اليوم.</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard">لوحة التحكم</string>
+    <string name="today_goal">هدف اليوم</string>
+    <string name="goal_percent">%1$d%% من هدف اليوم</string>
+    <string name="study_time">وقت الدراسة</string>
+    <string name="today_sessions">جلسات اليوم</string>
+    <string name="reviews_due">مراجعات مستحقة</string>
+    <string name="tasks_due">مهام مستحقة</string>
+    <string name="current_streak">السلسلة الحالية</string>
+    <string name="best_streak">أطول سلسلة</string>
+    <string name="streak_explained">يوم الدراسة = يوم تُنهي فيه جلسة تركيز مدتها دقيقة على الأقل بنتيجة «نعم» أو «جزئيًا».</string>
+    <string name="continue_button">متابعة</string>
+    <string name="continue_empty">ابدأ درسًا وستظهر هنا آخر نقطة وصلت إليها.</string>
+    <string name="recent_activity">النشاط الأخير</string>
+    <string name="recent_activity_empty">لا نشاط بعد. جلسة تركيز واحدة تبدأ كل شيء.</string>
+    <string name="week_chart">آخر ٧ أيام</string>
+    <string name="quick_actions">إجراءات سريعة</string>
+    <string name="overdue">متأخرة</string>
+
+    <!-- Focus engine -->
+    <string name="focus_title">محرك التركيز</string>
+    <string name="focus_subtitle">جلسات حقيقية تحفظ وقتك تلقائيًا.</string>
+    <string name="choose_preset">اختر نمط الجلسة</string>
+    <string name="focus_duration">مدة التركيز</string>
+    <string name="long_break">استراحة طويلة</string>
+    <string name="short_break">استراحة قصيرة</string>
+    <string name="sessions_count">عدد الجلسات</string>
+    <string name="long_break_interval">استراحة طويلة كل</string>
+    <string name="auto_start">البدء التلقائي للمراحل</string>
+    <string name="sound">تنبيه صوتي</string>
+    <string name="vibration">اهتزاز</string>
+    <string name="start_focus">ابدأ التركيز</string>
+    <string name="pause">إيقاف مؤقت</string>
+    <string name="resume">استئناف</string>
+    <string name="skip_phase">تخطي المرحلة</string>
+    <string name="end_session">إنهاء الجلسة</string>
+    <string name="in_focus">في تركيز</string>
+    <string name="paused_focus">متوقفة مؤقتًا</string>
+    <string name="round_of">الجلسة %1$d من %2$d</string>
+    <string name="all_focus_done">اكتملت جلساتك</string>
+    <string name="free_study">دراسة حرة</string>
+    <string name="linked_to">مرتبطة بـ</string>
+    <string name="new_custom_preset">نمط مخصص</string>
+    <string name="edit_preset">تعديل النمط</string>
+    <string name="delete_preset">حذف النمط</string>
+    <string name="preset_name">اسم النمط</string>
+    <string name="session_result">نتيجة الجلسة</string>
+    <string name="goal_label">ما هدف هذه الجلسة؟</string>
+    <string name="result_question">هل حققت الهدف؟</string>
+    <string name="result_yes">نعم</string>
+    <string name="result_partial">جزئيًا</string>
+    <string name="result_no">لا</string>
+    <string name="notes_label">ملاحظاتك على الجلسة</string>
+    <string name="page_label">آخر صفحة وصلتها (رقم)</string>
+    <string name="save_session">حفظ الجلسة</string>
+    <string name="session_saved">حُفظت الجلسة في تحليلاتك</string>
+    <string name="session_too_short">توقف الجلسة قبل دقيقة واحدة ولم تُحفظ.</string>
+    <string name="schedule_review_question">هل تريد جدولة مراجعة لهذا الدرس؟</string>
+    <string name="tomorrow">غدًا</string>
+    <string name="in_days">بعد %1$d أيام</string>
+    <string name="focus_minutes_unit">د</string>
+    <string name="minutes_word">دقيقة</string>
+    <string name="session_rounds_done">%1$d من %2$d جلسات</string>
+
+    <!-- Focus notifications -->
+    <string name="channel_focus">جلسة التركيز</string>
+    <string name="channel_focus_desc">مؤقت التركيز الجاري.</string>
+    <string name="channel_focus_done">انتهاء التركيز</string>
+    <string name="channel_focus_done_desc">تنبيه عند انتهاء وقت التركيز أو الاستراحة.</string>
+    <string name="channel_reviews">مواعيد المراجعة</string>
+    <string name="channel_reviews_desc">تذكير محلي بموعد المراجعات.</string>
+    <string name="channel_tasks">استحقاق المهام</string>
+    <string name="channel_tasks_desc">تذكير محلي بالمهام المستحقة.</string>
+    <string name="channel_reminder">تذكير الدراسة</string>
+    <string name="channel_reminder_desc">تذكير يومي ثابت بموعد دراستك.</string>
+    <string name="focus_notif_title">جلسة تركيز جارية</string>
+    <string name="focus_notif_text">المتبقي %1$s · الجلسة %2$d من %3$d</string>
+    <string name="focus_finished_title">انتهت جلسة التركيز</string>
+    <string name="focus_finished_text">راجع نتيجة جلستك (%1$s) واحفظها.</string>
+    <string name="review_due_title">حان موعد مراجعة</string>
+    <string name="review_due_text">راجع: %1$s</string>
+    <string name="task_due_title">مهمة مستحقة اليوم</string>
+    <string name="reminder_title">حان وقت الدراسة</string>
+    <string name="reminder_body">خطوة صغيرة اليوم تحافظ على سلسلتك.</string>
+
+    <!-- Reviews -->
+    <string name="reviews">المراجعات</string>
+    <string name="add_review">إضافة مراجعة</string>
+    <string name="next_review">المراجعة التالية</string>
+    <string name="complete_review">إتمام المراجعة</string>
+    <string name="skip_review">تخطي المراجعة</string>
+    <string name="reschedule_review">إعادة جدولة المراجعة</string>
+    <string name="review_note">ملاحظة المراجعة</string>
+    <string name="review_pending">مجدولة</string>
+    <string name="review_done">مكتملة</string>
+    <string name="review_skipped">متخطاة</string>
+    <string name="review_date">تاريخ المراجعة</string>
+    <string name="no_reviews">لا مراجعات مجدولة لهذا الدرس.</string>
+    <string name="review_hint">المتابعة المثالية: راجع بعد يومين، ثم أربعة، ثم ثمانية.</string>
+    <string name="review_completed">أُكملت المراجعة</string>
+    <string name="review_skipped_done">تخطيت هذه المراجعة</string>
+
+    <!-- Planner / plans / tasks -->
+    <string name="planner_title">المخطط</string>
+    <string name="planner_subtitle">أهداف دراسية واضحة، ومهام قابلة للتنفيذ.</string>
+    <string name="study_goals">الأهداف الدراسية</string>
+    <string name="new_plan">هدف دراسي جديد</string>
+    <string name="plan_name">عنوان الهدف</string>
+    <string name="plan_description">وصف الهدف</string>
+    <string name="start_date">تاريخ البداية</string>
+    <string name="end_date">تاريخ النهاية</string>
+    <string name="linked_subject">المادة المرتبطة</string>
+    <string name="no_subject">بدون مادة</string>
+    <string name="no_plans">لا أهداف دراسية بعد. خطّط لفصل كامل في ثوانٍ.</string>
+    <string name="plan_tasks">مهام الهدف</string>
+    <string name="add_task">مهمة جديدة</string>
+    <string name="task_name">عنوان المهمة</string>
+    <string name="task_description">تفاصيل المهمة</string>
+    <string name="task_date">التاريخ المخطط</string>
+    <string name="due_date">تاريخ الاستحقاق</string>
+    <string name="priority">الأولوية</string>
+    <string name="priority_low">منخفضة</string>
+    <string name="priority_normal">عادية</string>
+    <string name="priority_high">عالية</string>
+    <string name="mark_in_progress">بدء التنفيذ</string>
+    <string name="complete_task">إتمام المهمة</string>
+    <string name="reopen_task">إعادة فتح</string>
+    <string name="reschedule_task">إعادة جدولة</string>
+    <string name="delete_task">حذف المهمة</string>
+    <string name="no_tasks">لا مهام بعد. أنشئ أول خطوة نحو هدفك.</string>
+    <string name="delete_plan">حذف الهدف</string>
+    <string name="delete_plan_message">سيُحذف الهدف وكل المهام المرتبطة به.</string>
+
+    <!-- Calendar -->
+    <string name="calendar_title">التقويم</string>
+    <string name="calendar_subtitle">مهامك ومراجعاتك وجلساتك في مكان واحد.</string>
+    <string name="today">اليوم</string>
+    <string name="event_review">مراجعة</string>
+    <string name="event_task">مهمة</string>
+    <string name="event_session">جلسة تركيز</string>
+    <string name="event_plan">خطة دراسية</string>
+    <string name="no_events">لا أحداث في هذا اليوم.</string>
+    <string name="previous_month">الشهر السابق</string>
+    <string name="next_month">الشهر التالي</string>
+
+    <!-- Analytics -->
+    <string name="analytics_title">التحليلات</string>
+    <string name="analytics_subtitle">أرقام حقيقية من جلساتك، محسوبة على جهازك.</string>
+    <string name="range_today">اليوم</string>
+    <string name="range_week">هذا الأسبوع</string>
+    <string name="range_month">هذا الشهر</string>
+    <string name="total_time">إجمالي وقت الدراسة</string>
+    <string name="total_sessions">إجمالي الجلسات</string>
+    <string name="completed_lessons">دروس مكتملة</string>
+    <string name="pending_lessons">دروس غير مكتملة</string>
+    <string name="reviews_completed">مراجعات مكتملة</string>
+    <string name="weekly_time">دراسة الأسبوع</string>
+    <string name="monthly_time">دراسة الشهر</string>
+    <string name="subject_distribution">التوزيع على المواد</string>
+    <string name="subject_progress_title">تقدم المواد</string>
+    <string name="progress_explained">تقدّم المادة متوسط تقدّم دروسها. تقدّم الدرس = ٥٠٪ من متوسط الفهم والتطبيق والمراجعة + ٥٠٪ من وزن حالته.</string>
+    <string name="analytics_empty">لا بيانات بعد. أنهِ جلسة تركيز واحدة لبدء التحليلات.</string>
+    <string name="no_time_yet">لم تُسجَّل أي دقيقة في هذه الفترة.</string>
+
+    <!-- Lesson study panel -->
+    <string name="start_focus_lesson">ابدأ التركيز على هذا الدرس</string>
+    <string name="lesson_sessions">جلسات هذا الدرس</string>
+    <string name="lesson_reviews">مراجعات هذا الدرس</string>
+    <string name="no_lesson_sessions">لا جلسات مسجلة بعد.</string>
+    <string name="subject_progress_short">تقدم المادة</string>
+
+    <!-- Settings V2 -->
+    <string name="daily_goal">الهدف اليومي للتركيز</string>
+    <string name="daily_goal_minutes">%1$d دقيقة يوميًا</string>
+    <string name="study_reminder">تذكير الدراسة اليومي</string>
+    <string name="reminder_time">وقت التذكير</string>
+    <string name="notifications">الإشعارات</string>
+    <string name="notifications_enabled">الإشعارات مفعّلة</string>
+    <string name="notifications_disabled">الإشعارات معطّلة</string>
+    <string name="enable_notifications">تفعيل الإشعارات المحلية</string>
+    <string name="notification_rationale">إشعارات محلية فقط لتذكيرك بالمراجعات والمهام وانتهاء التركيز — دون أي خادم.</string>
+    <string name="dark_mode_note">وضع ليلي دائم — مساحة دراسة هادئة.</string>
+    <string name="choose_subject">اختر المادة</string>
+
+    <string name="task_pending">لم تبدأ</string>
+    <string name="task_in_progress">قيد التنفيذ</string>
+    <string name="task_done">مكتملة</string>
+    <string name="weekday_saturday">السبت</string>
+    <string name="weekday_sunday">الأحد</string>
+    <string name="weekday_monday">الاثنين</string>
+    <string name="weekday_tuesday">الثلاثاء</string>
+    <string name="weekday_wednesday">الأربعاء</string>
+    <string name="weekday_thursday">الخميس</string>
+    <string name="weekday_friday">الجمعة</string>
+</resources>
