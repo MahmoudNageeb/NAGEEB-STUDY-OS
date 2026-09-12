@@ -41,6 +41,7 @@ import com.nageebstudyos.study.domain.*
 import com.nageebstudyos.study.presentation.*
 import com.nageebstudyos.study.presentation.v2.*
 import com.nageebstudyos.study.ui.NageebTheme
+import com.nageebstudyos.study.ui.message
 import java.util.Locale
 
 class MainActivity : ComponentActivity() {
